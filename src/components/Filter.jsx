@@ -22,7 +22,3 @@ export const Filter =() => {
         </label>
       );
     }
-    // Filter.propTypes = {
-    //   handleChange: PropTypes.func.isRequired,
-      
-    //     }

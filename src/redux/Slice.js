@@ -26,7 +26,7 @@ const handleRejected = (state, action) => {
     reducers: {
       filterContact(state, action) {
         state.filter = action.payload
-        //         localStorage.setItem('items', JSON.stringify(state.items))
+       
     }},
 
     extraReducers: {
@@ -48,12 +48,12 @@ const handleRejected = (state, action) => {
       
       [deleteContacts.pending]:handlePending ,
       [deleteContacts.fulfilled](state, action) {
-        state.isLoading = false;
-        state.error = null;
-        const index = state.items.findIndex(
-          contact => contact.id !== action.payload.id
-        );
-        state.items.splice(index, 1);
+        // state.isLoading = false;
+        // state.error = null;
+        // const index = state.items.filter(
+        //   contact => contact.id === action.payload.id
+        // );
+        // state.items.splice(index, 1);
       },
       [deleteContacts.rejected]:handleRejected,
     },

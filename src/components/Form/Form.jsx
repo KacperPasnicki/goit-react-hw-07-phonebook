@@ -16,15 +16,14 @@ export const Form =() => {
    
     const form = e.currentTarget;
     const name = form.elements.name.value
-    const number = form.elements.number.value;
-    //  const newContact = { id: nanoid(8), name: name, number: number };
-    // dispatch(addContacts(Event.target.elements.text.value))
-    const nameArray = items.map(({name}) =>name)
+    const phone = form.elements.number.value;
+   
+    const nameArray = items.map(name=>name)
    
     if (nameArray.includes(name)) {
       alert(`${name} is already in contacts !`)
     }else {
-      dispatch(addContacts({name, number}))
+      dispatch(addContacts({name, phone}))
      
     form.reset();
   }};
@@ -45,14 +44,14 @@ export const Form =() => {
             title="Name may contain only letters, apostrophe, dash and spaces. For example Adrian, Jacob Mercer, Charles de Batz de Castelmore d'Artagnan"
             required
             placeholder='text your name'
-            // onChange={handleChange}
+          
           />
           </label>
           <label className='label'><span className='formName'>Number: </span>
           <input 
           id={Id}
       
-          // onChange={handleChange}
+          
           type="tel"
           name="number"
           pattern="\+?\d{1,4}?[-.\s]?\(?\d{1,3}?\)?[-.\s]?\d{1,4}[-.\s]?\d{1,4}[-.\s]?\d{1,9}"
@@ -72,7 +71,3 @@ export const Form =() => {
   
 
 
-    // Form.propTypes = {
-    //   handleSubmit: PropTypes.func.isRequired,
-     
-    //     }

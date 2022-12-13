@@ -23,7 +23,3 @@ export const ContactsList = () => {
 
 </ul>)}
     
-    // findContact.propTypes = {
-    //   items: PropTypes.object.isRequired,
-    //   filter: PropTypes.object.isRequired
-    //     }
