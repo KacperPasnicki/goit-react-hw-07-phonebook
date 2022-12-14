@@ -8,7 +8,7 @@ const contactsInitialState = {
     error: null,
   };
 
-// problem z reducerem zrobic wstepny storage na start apki
+
 
 
 const handlePending = state => {
@@ -37,7 +37,7 @@ const handleRejected = (state, action) => {
             state.items = action.payload;
         },
         [fetchContacts.rejected]:handleRejected,
-    },
+    
     [addContacts.pending]: handlePending, 
       [addContacts.fulfilled](state, action) {
         state.isLoading = false;
@@ -45,21 +45,20 @@ const handleRejected = (state, action) => {
         state.items.push(action.payload);
       },
       [addContacts.rejected]:handleRejected, 
-      
-      [deleteContacts.pending]:handlePending ,
+      [deleteContacts.pending]:handlePending,
       [deleteContacts.fulfilled](state, action) {
-        // state.isLoading = false;
-        // state.error = null;
-        // const index = state.items.filter(
-        //   contact => contact.id === action.payload.id
-        // );
-        // state.items.splice(index, 1);
+        state.isLoading = false;
+        state.error = null;
+        const index = state.items.findIndex(
+          contact => contact.id === action.payload.id
+        );
+        state.items.splice(index, 1);
       },
-      [deleteContacts.rejected]:handleRejected,
+      [deleteContacts.rejected]:handleRejected
     },
-    
-   );
-
+    }
+ )
+  
     export const ContactsReducer = ContactsSlice.reducer;
     export const { filterContact} = ContactsSlice.actions
 
