@@ -1,9 +1,7 @@
 import React from 'react';
 import { nanoid } from 'nanoid';
-// import PropTypes from 'prop-types';
 import { useDispatch, useSelector } from 'react-redux';
 import { getContact } from 'redux/selectors';
-
 import { addContacts } from 'redux/operations';
 
 export const Form = () => {
@@ -17,9 +15,7 @@ export const Form = () => {
     const form = e.currentTarget;
     const name = form.elements.name.value;
     const phone = form.elements.number.value;
-
     const nameArray = items.map(name => name);
-
     if (nameArray.includes(name)) {
       alert(`${name} is already in contacts !`);
     } else {
